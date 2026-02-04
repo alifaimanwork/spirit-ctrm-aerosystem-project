@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* fix bug: Modal Dialog Adds A None Existent Scrollbar Spacing To Backdrop */
+:root:has(
+        :is(
+                .modal-open,
+                .modal:target,
+                .modal-toggle:checked + .modal,
+                .modal[open]
+            )
+    ) {
+    scrollbar-gutter: unset;
+}
+
+details > summary {
+    list-style: none;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+@layer base {
+    .input-btm-border {
+        @apply input;
+        @apply h-[2rem];
+        @apply border-0;
+        @apply border-b-4;
+        @apply border-base-content;
+        @apply rounded-none;
+        @apply bg-transparent;
+    }
+
+    .select-btm-border {
+        @apply select;
+        @apply h-[2rem];
+        @apply border-0;
+        @apply border-b-4;
+        @apply border-base-content;
+        @apply rounded-none;
+    }
+
+    .input-btm-border:focus,
+    .select-btm-border:focus {
+        @apply outline-none;
+        @apply border-0;
+        @apply border-b-4;
+    }
+
+    .btn-icon:hover {
+        @apply text-red-600;
+    }
+
+    .btn-icon-circle {
+        @apply flex;
+        @apply justify-center;
+        @apply items-center;
+        @apply size-6;
+        @apply rounded-full;
+        @apply bg-white;
+    }
+
+    .btn-icon-circle:hover,
+    .btn-icon:hover .btn-icon-circle {
+        @apply rounded-full;
+        @apply bg-red-600;
+    }
+
+    .table {
+        @apply static;
+    }
+
+    .table :where(th, td)  {
+        @apply text-base-content;
+        @apply border-solid;
+        @apply border;
+        @apply border-neutral-400;
+        @apply text-center;
+    }
+
+    .table :where(tbody)  {
+        @apply border-solid;
+        @apply bg-base-100;
+    }
+    .table :where(tbody td)  {
+        @apply p-0 !important;
+    }
+
+
+
+   
+    /* WIP header, p, label use when needed*/
+
+    /* p {
+        @apply;
+    } */
+}
